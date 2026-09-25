@@ -1,20 +1,20 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package sistemaacademicokp;
 
-/**
- *
- * @author vanes
- */
 public class Main {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
     }
-    
+    public static void registrarAsignatura () {
+        System.out.println("\n-- Registrar asignatura --");
+        String codigo = leerTexto("Código: ");
+        if (buscarAsignaturaPorCodigo(codigo) != null) {
+            System.out.println("Ya existe una asignatura con ese código.");
+            return;
+        }
+        String nombre = leerTexto("Nombre: ");
+        int creditos = leerEntero("Créditos: ");
+        String docente = leerTexto("Docente: ");
+        asignaturas.add(new Asignatura(codigo, nombre, creditos, docente));
+        System.out.println("Asignatura registrada con éxito.");
+    }
 }
