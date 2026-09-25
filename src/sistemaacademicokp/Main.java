@@ -59,4 +59,19 @@ public class Main {
         System.out.println("15. Eliminar nota");
         System.out.println("0. Salir");
     }
+
+    public static void registrarEstudiante() {
+        System.out.println("\n-- Registrar estudiante --");
+        String codigo = leerTexto("Código: ");
+        if (buscarEstudiantePorCodigo(codigo) != null) {
+            System.out.println("Ya existe un estudiante con ese código.");
+            return;
+        }
+        String nombre = leerTexto("Nombre: ");
+        String apellido = leerTexto("Apellido: ");
+        int edad = leerEntero("Edad: ");
+        int semestre = leerEntero("Semestre: ");
+        estudiantes.add(new Estudiante(codigo, nombre, apellido, edad, semestre));
+        System.out.println("Estudiante registrado con éxito.");
+    }
 }
