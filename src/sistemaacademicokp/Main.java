@@ -24,4 +24,32 @@ public class Main {
         notas.add(new Nota(e, a, valor, periodo));
         System.out.println("Nota registrada con éxito.");
     }
+
+    public static void listarNotas() {
+        System.out.println("\n-- Lista de notas --");
+        if (notas.isEmpty()) {
+            System.out.println("No hay notas registradas.");
+            return;
+        }
+        for (Nota n : notas) {
+            System.out.println(n);
+        }
+    }
+
+    public static void buscarNota() {
+        System.out.println("\n-- Buscar nota --");
+        String codEst = leerTexto("Código del estudiante: ");
+        String codAsig = leerTexto("Código de la asignatura: ");
+        boolean encontrada = false;
+        for (Nota n : notas) {
+            if (n.getEstudiante().getCodigo().equalsIgnoreCase(codEst)
+                    && n.getAsignatura().getCodigo().equalsIgnoreCase(codAsig)) {
+                System.out.println(n);
+                encontrada = true;
+            }
+        }
+        if (!encontrada) {
+            System.out.println("No se encontraron notas para esa búsqueda.");
+        }
+    }
 }
