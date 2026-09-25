@@ -35,4 +35,18 @@ public class Main {
         Asignatura a = buscarAsignaturaPorCodigo(codigo);
         System.out.println(a != null ? a : "Asignatura no encontrada.");
     }
+
+    public static void actualizarAsignatura() {
+        System.out.println("\n-- Actualizar asignatura --");
+        String codigo = leerTexto("Código de la asignatura a actualizar: ");
+        Asignatura a = buscarAsignaturaPorCodigo(codigo);
+        if (a == null) {
+            System.out.println("Asignatura no encontrada.");
+            return;
+        }
+        a.setNombre(leerTexto("Nuevo nombre: "));
+        a.setCreditos(leerEntero("Nuevos créditos: "));
+        a.setDocente(leerTexto("Nuevo docente: "));
+        System.out.println("Asignatura actualizada con éxito.");
+    }
 }
