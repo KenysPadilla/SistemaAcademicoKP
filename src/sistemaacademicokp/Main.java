@@ -92,4 +92,19 @@ public class Main {
         Estudiante e = buscarEstudiantePorCodigo(codigo);
         System.out.println(e != null ? e : "Estudiante no encontrado.");
     }
+
+    public static void actualizarEstudiante() {
+        System.out.println("\n-- Actualizar estudiante --");
+        String codigo = leerTexto("Código del estudiante a actualizar: ");
+        Estudiante e = buscarEstudiantePorCodigo(codigo);
+        if (e == null) {
+            System.out.println("Estudiante no encontrado.");
+            return;
+        }
+        e.setNombre(leerTexto("Nuevo nombre: "));
+        e.setApellido(leerTexto("Nuevo apellido: "));
+        e.setEdad(leerEntero("Nueva edad: "));
+        e.setSemestre(leerEntero("Nuevo semestre: "));
+        System.out.println("Estudiante actualizado con éxito.");
+    }
 }
