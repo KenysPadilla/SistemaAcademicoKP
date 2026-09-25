@@ -74,4 +74,22 @@ public class Main {
         estudiantes.add(new Estudiante(codigo, nombre, apellido, edad, semestre));
         System.out.println("Estudiante registrado con éxito.");
     }
+
+    public static void listarEstudiantes() {
+        System.out.println("\n-- Lista de estudiantes --");
+        if (estudiantes.isEmpty()) {
+            System.out.println("No hay estudiantes registrados.");
+            return;
+        }
+        for (Estudiante e : estudiantes) {
+            System.out.println(e);
+        }
+    }
+
+    public static void buscarEstudiante() {
+        System.out.println("\n-- Buscar estudiante --");
+        String codigo = leerTexto("Código a buscar: ");
+        Estudiante e = buscarEstudiantePorCodigo(codigo);
+        System.out.println(e != null ? e : "Estudiante no encontrado.");
+    }
 }
