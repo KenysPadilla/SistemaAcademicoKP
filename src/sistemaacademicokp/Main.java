@@ -107,4 +107,25 @@ public class Main {
         e.setSemestre(leerEntero("Nuevo semestre: "));
         System.out.println("Estudiante actualizado con éxito.");
     }
+
+    public static void eliminarEstudiante() {
+        System.out.println("\n-- Eliminar estudiante --");
+        String codigo = leerTexto("Código del estudiante a eliminar: ");
+        Estudiante e = buscarEstudiantePorCodigo(codigo);
+        if (e == null) {
+            System.out.println("Estudiante no encontrado.");
+            return;
+        }
+        estudiantes.remove(e);
+        System.out.println("Estudiante eliminado con éxito.");
+    }
+
+    private static Estudiante buscarEstudiantePorCodigo(String codigo) {
+        for (Estudiante e : estudiantes) {
+            if (e.getCodigo().equalsIgnoreCase(codigo)) {
+                return e;
+            }
+        }
+        return null;
+    }
 }
