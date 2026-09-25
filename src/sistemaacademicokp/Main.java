@@ -17,4 +17,22 @@ public class Main {
         asignaturas.add(new Asignatura(codigo, nombre, creditos, docente));
         System.out.println("Asignatura registrada con éxito.");
     }
+
+    public static void listarAsignaturas() {
+        System.out.println("\n-- Lista de asignaturas --");
+        if (asignaturas.isEmpty()) {
+            System.out.println("No hay asignaturas registradas.");
+            return;
+        }
+        for (Asignatura a : asignaturas) {
+            System.out.println(a);
+        }
+    }
+
+    public static void buscarAsignatura() {
+        System.out.println("\n-- Buscar asignatura --");
+        String codigo = leerTexto("Código a buscar: ");
+        Asignatura a = buscarAsignaturaPorCodigo(codigo);
+        System.out.println(a != null ? a : "Asignatura no encontrada.");
+    }
 }
