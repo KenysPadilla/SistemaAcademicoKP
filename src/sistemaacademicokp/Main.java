@@ -10,7 +10,53 @@ public class Main {
     private static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        // TODO code application logic here
+        int opcion;
+        do {
+            mostrarMenu();
+            opcion = leerEntero("Seleccione una opción: ");
+            switch (opcion) {
+                case 1 -> registrarEstudiante();
+                case 2 -> listarEstudiantes();
+                case 3 -> buscarEstudiante();
+                case 4 -> actualizarEstudiante();
+                case 5 -> eliminarEstudiante();
+                case 6 -> registrarAsignatura();
+                case 7 -> listarAsignaturas();
+                case 8 -> buscarAsignatura();
+                case 9 -> actualizarAsignatura();
+                case 10 -> eliminarAsignatura();
+                case 11 -> registrarNota();
+                case 12 -> listarNotas();
+                case 13 -> buscarNota();
+                case 14 -> actualizarNota();
+                case 15 -> eliminarNota();
+                case 0 -> System.out.println("Saliendo del sistema...");
+                default -> System.out.println("Opción inválida.");
+            }
+        } while (opcion != 0);
+        sc.close();
     }
-    
+
+    public static void mostrarMenu() {
+        System.out.println("\n===== SISTEMA ACADÉMICO - UPC =====");
+        System.out.println("-- Estudiantes --");
+        System.out.println("1. Registrar estudiante");
+        System.out.println("2. Listar estudiantes");
+        System.out.println("3. Buscar estudiante por código");
+        System.out.println("4. Actualizar estudiante");
+        System.out.println("5. Eliminar estudiante");
+        System.out.println("-- Asignaturas --");
+        System.out.println("6. Registrar asignatura");
+        System.out.println("7. Listar asignaturas");
+        System.out.println("8. Buscar asignatura por código");
+        System.out.println("9. Actualizar asignatura");
+        System.out.println("10. Eliminar asignatura");
+        System.out.println("-- Notas --");
+        System.out.println("11. Registrar nota");
+        System.out.println("12. Listar notas");
+        System.out.println("13. Buscar nota");
+        System.out.println("14. Actualizar nota");
+        System.out.println("15. Eliminar nota");
+        System.out.println("0. Salir");
+    }
 }
