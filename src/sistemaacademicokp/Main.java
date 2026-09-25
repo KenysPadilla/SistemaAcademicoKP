@@ -52,4 +52,18 @@ public class Main {
             System.out.println("No se encontraron notas para esa búsqueda.");
         }
     }
+
+    public static void actualizarNota() {
+        System.out.println("\n-- Actualizar nota --");
+        String codEst = leerTexto("Código del estudiante: ");
+        String codAsig = leerTexto("Código de la asignatura: ");
+        String periodo = leerTexto("Periodo de la nota a actualizar: ");
+        Nota n = buscarNotaExacta(codEst, codAsig, periodo);
+        if (n == null) {
+            System.out.println("Nota no encontrada.");
+            return;
+        }
+        n.setValor(leerDecimal("Nuevo valor de la nota: "));
+        System.out.println("Nota actualizada con éxito.");
+    }
 }
