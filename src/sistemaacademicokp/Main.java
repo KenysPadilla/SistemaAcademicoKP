@@ -66,4 +66,29 @@ public class Main {
         n.setValor(leerDecimal("Nuevo valor de la nota: "));
         System.out.println("Nota actualizada con éxito.");
     }
+
+    public static void eliminarNota() {
+        System.out.println("\n-- Eliminar nota --");
+        String codEst = leerTexto("Código del estudiante: ");
+        String codAsig = leerTexto("Código de la asignatura: ");
+        String periodo = leerTexto("Periodo de la nota a eliminar: ");
+        Nota n = buscarNotaExacta(codEst, codAsig, periodo);
+        if (n == null) {
+            System.out.println("Nota no encontrada.");
+            return;
+        }
+        notas.remove(n);
+        System.out.println("Nota eliminada con éxito.");
+    }
+
+    private static Nota buscarNotaExacta(String codEst, String codAsig, String periodo) {
+        for (Nota n : notas) {
+            if (n.getEstudiante().getCodigo().equalsIgnoreCase(codEst)
+                    && n.getAsignatura().getCodigo().equalsIgnoreCase(codAsig)
+                    && n.getPeriodo().equalsIgnoreCase(periodo)) {
+                return n;
+            }
+        }
+        return null;
+    }
 }
