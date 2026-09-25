@@ -49,4 +49,25 @@ public class Main {
         a.setDocente(leerTexto("Nuevo docente: "));
         System.out.println("Asignatura actualizada con éxito.");
     }
+
+    public static void eliminarAsignatura() {
+        System.out.println("\n-- Eliminar asignatura --");
+        String codigo = leerTexto("Código de la asignatura a eliminar: ");
+        Asignatura a = buscarAsignaturaPorCodigo(codigo);
+        if (a == null) {
+            System.out.println("Asignatura no encontrada.");
+            return;
+        }
+        asignaturas.remove(a);
+        System.out.println("Asignatura eliminada con éxito.");
+    }
+
+    private static Asignatura buscarAsignaturaPorCodigo(String codigo) {
+        for (Asignatura a : asignaturas) {
+            if (a.getCodigo().equalsIgnoreCase(codigo)) {
+                return a;
+            }
+        }
+        return null;
+    }
 }
